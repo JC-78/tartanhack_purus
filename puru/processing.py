@@ -193,10 +193,10 @@ def check_ingredients(ingredients_list):
     # Print formatted results
     formatted_result = []
     for ingredient, info in results.items():
-        formatted_result.append(f"Ingredient: {ingredient}\n")
-        formatted_result.append(f"  Safety: {info['Safety']}\n")
+        formatted_result.append(f"Ingredient: {ingredient} ")
+        formatted_result.append(f"  Safety: {info['Safety']} ")
         benefits_str = ', '.join(info['Benefits'])
-        formatted_result.append(f"  Benefits: {benefits_str}\n")
+        formatted_result.append(f"  Benefits: {benefits_str} ")
     return formatted_result
 
 def count_harmful_ingredients(ingredients_list):

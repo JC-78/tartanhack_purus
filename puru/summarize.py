@@ -5,7 +5,7 @@ import re
 def summarize():
     # Load your API key from the JSON file
     try:
-        with open('/Users/choo/GithubProjects/CMU_Spring_2024/tartanhack_purus/puru/key.json', 'r') as file:
+        with open('/Users/joonghochoi/Desktop/Music2P/key.json', 'r') as file:
             api_key_data = json.load(file)
             api_key = api_key_data.get('api_key', '')
 
@@ -13,7 +13,7 @@ def summarize():
         client = OpenAI(api_key=api_key)
         
         # Text to be summarized
-        with open('/Users/choo/GithubProjects/CMU_Spring_2024/tartanhack_purus/puru/output.txt', 'r', encoding='utf-8') as file:
+        with open('/Users/joonghochoi/Desktop/Music2P/output.txt', 'r', encoding='utf-8') as file:
             text_to_summarize = file.read()
 
         # Ask OpenAI to summarize the text
@@ -29,11 +29,12 @@ def summarize():
         raw = response.choices[0].message.content
         print("gpt answer")
         print(raw)
-        pattern = r'"([^"]*)"'
+        pattern = r"['\"]([^'\"]*)['\"]"
         matches = re.findall(pattern, raw)
-
         print(matches)
-        return matches
+        concatenated_string = '\n'.join(matches)
+        print("concatenated_string",concatenated_string)
+        return concatenated_string
 
     except FileNotFoundError:
         print("Error: 'key.json' file not found. Make sure the file exists in the correct location.")

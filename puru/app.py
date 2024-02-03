@@ -1,9 +1,12 @@
-
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
-import requests
 import os
 import base64
+
+from text_extraction import extract_image_to_text
+from summarize import summarize
+from processing import count_allergen_ingredients, count_harmful_ingredients, check_ingredients
+
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -16,53 +19,42 @@ def index():
 def display_image(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-@app.route('/upload', methods=['POST'])
+def get_dynamic_img_path(image_filename):
+    return os.path.join(app.config['UPLOAD_FOLDER'], image_filename)
+
+@app.route('/upload', methods=['GET', 'POST'])
 def upload():
-    if 'file' not in request.files or 'music' not in request.files or 'description' not in request.form:
-        return redirect(request.url)
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            return redirect(request.url)
 
-    image_file = request.files['file']
-    music_file = request.files['music']
-    description = request.form['description']
+        image_file = request.files['file']
 
-    if image_file.filename == '' or music_file.filename == '' or description == '':
-        return redirect(request.url)
+        if image_file.filename == '':
+            return redirect(request.url)
 
-    # Process the image file
-    image_filename = secure_filename(image_file.filename)
-    image_file.save(os.path.join(app.config['UPLOAD_FOLDER'], image_filename))
-
-    # Process the music file
-    music_filename = secure_filename(music_file.filename)
-    music_file.save(os.path.join(app.config['UPLOAD_FOLDER'], music_filename))
-
-    # Send the files to the Colab notebook's API endpoint
-    ngrok_url = 'https://f03c-34-168-255-220.ngrok.io/caption'  # Replace with your ngrok URL
-    files = {
-        'file': open(os.path.join(app.config['UPLOAD_FOLDER'], image_filename), 'rb'),
-        'music': open(os.path.join(app.config['UPLOAD_FOLDER'], music_filename), 'rb')
-    }
-    data = {'description': description} 
-    try:
-        response = requests.post(ngrok_url, files=files, data=data)
-
-        if response.ok and response.headers.get('content-type') == 'application/json':
-            api_response = response.json()
-            caption = api_response.get('caption', 'Plz wait')
-            img_str = api_response.get('image', '')
-            filename = 'generated_image.png'
-
-            with open(os.path.join(app.config['UPLOAD_FOLDER'], filename), 'wb') as f:
-                f.write(base64.b64decode(img_str))
-
-            return render_template('index.html', caption=caption, description=description, image=filename)
-        else:
-            caption = 'Unexpected response from the server'
-            return render_template('index.html', caption=caption, description='', image='')
-
-    except requests.exceptions.RequestException as e:
-        print(f"Error: {e}")
-        return render_template('index.html', caption='Unexpected response from the server', description='', image='')
+        # Process the image file
+        image_filename = secure_filename(image_file.filename)
+        image_file.save(get_dynamic_img_path(image_filename))
+        print("image file saved")
+        # Use the dynamically generated img_path
+        img_path = get_dynamic_img_path(image_filename)
+        extract_image_to_text(img_path) 
+        print("written to output.txt")
+        ingredients = summarize()
+        print(">>>>>>>>>>>>>>ingredients")
+        print(ingredients)
+        allergen=count_allergen_ingredients(ingredients)
+        harmful=count_harmful_ingredients(ingredients)
+        ingredients=check_ingredients(ingredients)
+        # print("ingredient result",ingredients)
+        image=""
+        for i in ingredients:
+            image+=i
+        return render_template('index.html', caption=harmful, description=allergen, image=image)
+    else:
+        caption = 'Unexpected response from the server'
+        return render_template('index.html', caption=caption, description='', image='')
 
 
 if __name__ == '__main__':
