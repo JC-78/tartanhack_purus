@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Purus web extension",
+    "description": "This is a web extension for users to use Purus while browsing online shops",
+    "version": "1.0",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["storage", "activeTab"],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.amazon.com/*"
+            ],
+            "run_at": "document_end",
+            "js": [
+                "pageAlter.js"
+            ]
+        }
+    ]
+}
