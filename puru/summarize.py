@@ -13,7 +13,7 @@ def summarize():
         client = OpenAI(api_key=api_key)
         
         # Text to be summarized
-        with open('output.txt', 'r', encoding='utf-8') as file:
+        with open('/Users/choo/GithubProjects/CMU_Spring_2024/tartanhack_purus/puru/output.txt', 'r', encoding='utf-8') as file:
             text_to_summarize = file.read()
 
         # Ask OpenAI to summarize the text

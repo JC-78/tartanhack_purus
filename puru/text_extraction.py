@@ -83,7 +83,7 @@ def extract_image_to_text(png_path):
         ingredients_text = text[ingredients_index:]
         
         # Save the extracted text to a text file
-        with open('output.txt', 'w') as text_file:
+        with open('/Users/choo/GithubProjects/CMU_Spring_2024/tartanhack_purus/puru/output.txt', 'w') as text_file:
             text_file.write(ingredients_text)
 
         print("Saved Ingredients and beyond to output.txt.")
