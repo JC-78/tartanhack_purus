@@ -6,8 +6,6 @@ if __name__ == "__main__":
     img_path = 'puru/white.png'
     extract_image_to_text(img_path)
     ingredients = summarize()
-    print(">>>>>>>>>>>>>>ingredients")
-    print(ingredients)
     count_allergen_ingredients(ingredients)
     count_harmful_ingredients(ingredients)
     check_ingredients(ingredients)

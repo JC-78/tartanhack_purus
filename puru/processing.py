@@ -191,11 +191,13 @@ def check_ingredients(ingredients_list):
         }
     
     # Print formatted results
+    formatted_result = []
     for ingredient, info in results.items():
-        print(f"Ingredient: {ingredient}")
-        print(f"  Safety: {info['Safety']}")
+        formatted_result.append(f"Ingredient: {ingredient}\n")
+        formatted_result.append(f"  Safety: {info['Safety']}\n")
         benefits_str = ', '.join(info['Benefits'])
-        print(f"  Benefits: {benefits_str}\n")
+        formatted_result.append(f"  Benefits: {benefits_str}\n")
+    return formatted_result
 
 def count_harmful_ingredients(ingredients_list):
     # Normalize the harmful_ingredients list for case-insensitive comparison
@@ -204,7 +206,7 @@ def count_harmful_ingredients(ingredients_list):
     # Count harmful ingredients
     harmful_count = sum(1 for ingredient in ingredients_list if ingredient.lower() in harmful_ingredients_lower)
     
-    print(f"Top 20 harmful ingredients count: {harmful_count} \n")
+    return f"Top 20 harmful ingredients count: {harmful_count} \n"
 
 def count_allergen_ingredients(ingredients_list):
     # Normalize the harmful_ingredients list for case-insensitive comparison
@@ -213,7 +215,7 @@ def count_allergen_ingredients(ingredients_list):
     # Count harmful ingredients
     harmful_count = sum(1 for ingredient in ingredients_list if ingredient.lower() in allergen_lower)
     
-    print(f"FDA compiled common allergen count: {harmful_count} \n")
+    return f"FDA compiled common allergen count: {harmful_count} \n"
 
 
 # Example usage with a combined approach
