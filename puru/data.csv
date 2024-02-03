@@ -25,7 +25,7 @@
 23,tymol,3,[],
 24,hormones,3,[],Substances similar to medicines that causes precocious puberty in girls
 25,phenoxyethanol,3,[],Causes  irritation
-26,bha,3,[],
+26,bha,3,[],BHA are linked to several health concerns including endocrine disruption and organ-system toxicity.
 27,triclosan,3,[],An endocrine disruptor that causes decreased immunity and fertility
 28,dht,3,[],"Causes hair loss, skin hypersensitivity, and allergies"
 29,mineral oil,3,[],"Causes acne, inhibits toxin discharge, interferes with cell growth, and skin aging"
@@ -33,64 +33,73 @@
 31,isopropyl alcohol,3,[],"Causes headache, flushing, dizziness, and vomiting when ingested or inhaled"
 32,triisopropanolamine,3,[],Causes skin dryness by removing excessive sebum
 33,benzophenone-3,3,[],Causes respiratory and digestive disorders and allergies
+,benzophenone,3,[],Causes respiratory and digestive disorders and allergies
+,sulisobenzone,3,[],"sulisobenzone is persistent, bioaccumulative and toxic (PBT). These chemicals are linked to cancer, endocrine disruption, and organ system toxicity."
+,sulisobenzone sodium,3,[],"sulisobenzone is persistent, bioaccumulative and toxic (PBT). These chemicals are linked to cancer, endocrine disruption, and organ system toxicity."
 34,sls,3,[],"Causes cataracts, dry skin, and cancer"
 35,dmdm hydantoin,3,[],Causes skin inflammation
 36,isopropyl methyphnol,3,[],"Causes strong irritation, swelling, acne, and hives"
 37,peg,3,[],Causes liver and kidney disorders and allergies
 38,oxybenzone,3,[],Causes respiratory and digestive disorders and allergies
 39,polyethylene glycol,3,[],Causes liver and kidney disorders and allergies
-40,latex,2,[],
-41,amyl cinnamal,2,[],
-42,amylcinnamyl alcohol,2,[],
-43,anisyl alcohol,2,[],
-44,benzyl alcohol,2,[],
-45,benzyl benzoate,2,[],
-46,benzyl cinnamate,2,[],
-47,benzyl salicylate,2,[],
-48,cinnamyl alcohol,2,[],
-49,cinnamaldehyde,2,[],
-50,citral,2,[],
-51,citronellol,2,[],
-52,coumarin,2,[],
-53,eugenol,2,[],
-54,farnesol,2,[],
-55,geraniol,2,[],
-56,hexyl cinnamaladehyde,2,[],
-57,hydroxycitronellal,2,[],
-58,hydroxyisohexyl 3-cyclohexene carboxaldehyde,2,[],
-59,hicc,2,[],
-60,lyral,2,[],
-61,isoeugenol,2,[],
-62,lilial,2,[],
-63,d-limonene,2,[],
-64,linalool,2,[],
-65,methyl 2-octynoate,2,[],
-66,g-methylionone,2,[],
-67,oak moss extract,2,[],
-68,tree moss extract,2,[],
-69,methylisothiazolinone,2,[],
-70,mit,2,[],
-71,methylchloroisothiazolinone,2,[],
-72,cmit,2,[],
-73,formaldehyde,2,[],
-74,bronopol,2,[],
-75,"2-bromo-2-nitropropane-1,3-diol",2,[],
-76,5-bromo-5-nitro-1,2,[],
-77,3-dioxane,2,[],
+,phenacetin,3,[],"Carcinogens has health concern in cancer, endocrine disruption, developmental and reproductive toxicity, bioaccumulation, and ecotoxicity"
+,benzene,3,[],"Carcinogens has health concern in cancer, endocrine disruption, developmental and reproductive toxicity, bioaccumulation, and ecotoxicity"
+,methylene glycol,3,[],"Carcinogens has health concern in cancer, endocrine disruption, developmental and reproductive toxicity, bioaccumulation, and ecotoxicity"
+,ethylene oxide,3,[],"Carcinogens has health concern in cancer, endocrine disruption, developmental and reproductive toxicity, bioaccumulation, and ecotoxicity"
+,chromium,3,[],"Carcinogens has health concern in cancer, endocrine disruption, developmental and reproductive toxicity, bioaccumulation, and ecotoxicity"
+,cadmium,3,[],"Carcinogens has health concern in cancer, endocrine disruption, developmental and reproductive toxicity, bioaccumulation, and ecotoxicity"
+40,latex,2,[],May cause allergy
+41,amyl cinnamal,2,[],May cause allergy
+42,amylcinnamyl alcohol,2,[],May cause allergy
+43,anisyl alcohol,2,[],May cause allergy
+44,benzyl alcohol,2,[],May cause allergy
+45,benzyl benzoate,2,[],May cause allergy
+46,benzyl cinnamate,2,[],May cause allergy
+47,benzyl salicylate,2,[],May cause allergy
+48,cinnamyl alcohol,2,[],May cause allergy
+49,cinnamaldehyde,2,[],May cause allergy
+50,citral,2,[],May cause allergy
+51,citronellol,2,[],May cause allergy
+52,coumarin,2,[],May cause allergy
+53,eugenol,2,[],May cause allergy
+54,farnesol,2,[],May cause allergy
+55,geraniol,2,[],May cause allergy
+56,hexyl cinnamaladehyde,2,[],May cause allergy
+57,hydroxycitronellal,2,[],May cause allergy
+58,hydroxyisohexyl 3-cyclohexene carboxaldehyde,2,[],May cause allergy
+59,hicc,2,[],May cause allergy
+60,lyral,2,[],May cause allergy
+61,isoeugenol,2,[],May cause allergy
+62,lilial,2,[],May cause allergy
+63,d-limonene,2,[],May cause allergy
+64,linalool,2,[],May cause allergy
+65,methyl 2-octynoate,2,[],May cause allergy
+66,g-methylionone,2,[],May cause allergy
+67,oak moss extract,2,[],May cause allergy
+68,tree moss extract,2,[],May cause allergy
+69,methylisothiazolinone,2,[],May cause allergy
+70,mit,2,[],May cause allergy
+71,methylchloroisothiazolinone,2,[],May cause allergy
+72,cmit,2,[],May cause allergy
+73,formaldehyde,2,[],May cause allergy
+74,bronopol,2,[],May cause allergy
+75,"2-bromo-2-nitropropane-1,3-diol",2,[],May cause allergy
+76,5-bromo-5-nitro-1,2,[],May cause allergy
+77,3-dioxane,2,[],May cause allergy
 78,diazolidinyl urea,2,[],Causes skin inflammation
 79,dmdm hydantoin,2,[],Causes skin inflammation
-80,dimethylol,2,[],
-81,dimethylhydantoin,2,[],
+80,dimethylol,2,[],May cause allergy
+81,dimethylhydantoin,2,[],May cause allergy
 82,imidazolidinyl urea,2,[],Causes skin inflammation
-83,sodium hydroxymethylglycinate,2,[],
-84,quaternium-15,2,[],
-85,dowicil 200,2,[],
-86,hexaminium chloride,2,[],
-87,p-phenylenediamine,2,[],
-88,ppd,2,[],
-89,coal-tar,2,[],
-90,nickel,2,[],
-91,gold,2,[],
+83,sodium hydroxymethylglycinate,2,[],May cause allergy
+84,quaternium-15,2,[],May cause allergy
+85,dowicil 200,2,[],May cause allergy
+86,hexaminium chloride,2,[],May cause allergy
+87,p-phenylenediamine,2,[],May cause allergy
+88,ppd,2,[],May cause allergy
+89,coal-tar,2,[],May cause allergy
+90,nickel,2,[],May cause allergy
+91,gold,2,[],May cause allergy
 92,hydrolyzed algin,0,['redness'],
 93,probiotics,0,['redness'],
 94,kojic acid,0,['pigmentation'],
