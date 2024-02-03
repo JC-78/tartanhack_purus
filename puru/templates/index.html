@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Music2P</title>
+    <title>PURUS</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-image: url("static/background.png");
+            background-image: url("static/background1.png");
             background-size: cover;
             background-position: top;
             height: 100vh;
@@ -66,56 +66,33 @@
     </style>
 </head>
 <body>
-    <!-- <div class="bottom-section">
-        <h1>Music2P</h1>
-        <form method="POST" action="/upload" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <br>
-            <textarea name="description" placeholder="Describe what kind of album cover do you want"></textarea>
-            <br>
-            <input type="submit" value="Upload">
-        </form>
-    </div> -->
-    <!-- <div class="bottom-section {% if caption %}hidden{% endif %}">
-        <h1>Music2P</h1>
-        <form method="POST" action="/upload" enctype="multipart/form-data">
-            <label for="imageUpload">Choose an image:</label>
-            <input type="file" name="file">
-            <label for="musicUpload">Choose a music file (.mp3):</label>
-            <input type="file" name="music" accept=".mp3">
-            <br>
-            <textarea name="description" placeholder="Describe what kind of album cover do you want"></textarea>
-            <br>
-            <input type="submit" value="Upload">
-        </form>
-    </div> -->
     <div class="bottom-section {% if caption %}hidden{% endif %}">
     <form method="POST" action="/upload" enctype="multipart/form-data">
-        <h1>Purus</h1>
+        <h1>PURUS</h1>
         <label for="imageUpload">Choose an image:</label>
         <input type="file" name="file">
-        <label for="musicUpload">Choose a music file (.mp3):</label>
-        <input type="file" name="music" accept=".mp3">
-        <br>
+        <!-- <label for="musicUpload">Choose a music file (.mp3):</label>
+        <input type="file" name="music" accept=".mp3"> -->
+        <!-- <br>
         <textarea name="description" placeholder="Describe what kind of album cover do you want"></textarea>
-        <br>
+        <br> -->
         <input type="submit" value="Upload">
     </form>
 </div>
 
     <!-- Section to display the caption -->
     <div class="caption-section">
-        <h2>Generated Caption</h2>
+        <h2>How many of top 20 harmful ingredients detected?</h2>
         <p id="captionText">{{ caption }}</p>
     </div>
 
     <!-- Section to display the description -->
     <div class="description-section">
-        <h2>Description</h2>
+        <h2>How many of FDA compiled common allergen detected?</h2>
         <p id="descriptionText">{{ description }}</p>
     </div>
     <div class="image-section">
-        <h2>Generated Image</h2>
+        <h2>Substance Safety and Benefits</h2>
         <img id="generatedImage" class="generated-image" src="{{ url_for('display_image', filename=image) }}" alt="Generated Image">
     </div>
 
