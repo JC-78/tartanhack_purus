@@ -23,11 +23,20 @@ function createIngredientTile(ingredient) {
         var info = {
             "benefit": [],
             "harmful_level": 1,
-            "comment": ""
+            "comment": "",
+            "url": ""
         }
     }
     console.log(info)
-    var li = document.createElement("li");
+    if (info['url'].length > 0) {
+        var li = document.createElement("a");
+        li.setAttribute("href", info['url'])
+        li.setAttribute("target", "_blank")
+    } else {
+        var li = document.createElement("li");
+    }
+    // li.setAttribute("type", "button")
+    li.classList.add("list-group-item-action")
     li.classList.add("list-group-item")
     li.classList.add("d-flex")
     li.classList.add("justify-content-between")

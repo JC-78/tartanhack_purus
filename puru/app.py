@@ -27,7 +27,8 @@ def query(ingredient):
     return {
         "harmful_level": int(db.harmful_level(ingredient)),
         "comment": db.comment(ingredient),
-        "benefit": db.benefit(ingredient)
+        "benefit": db.benefit(ingredient),
+        "url": db.url(ingredient)
     }
 
 @app.route('/upload', methods=['GET', 'POST'])

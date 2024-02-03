@@ -21,3 +21,9 @@ def benefit(ingredient):
         return data.loc[ingredient, "benefit"]
     except KeyError:
         return []
+    
+def url(ingredient):
+    try:
+        return data.loc[ingredient, "Url"]
+    except KeyError:
+        return ""
