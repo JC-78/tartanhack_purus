@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 import os
-import base64
 
 from text_extraction import extract_image_to_text
 from summarize import summarize
 from processing import count_allergen_ingredients, count_harmful_ingredients, check_ingredients
-
+import db
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -21,6 +20,14 @@ def display_image(filename):
 
 def get_dynamic_img_path(image_filename):
     return os.path.join(app.config['UPLOAD_FOLDER'], image_filename)
+
+@app.route('/query/<ingredient>', methods=['GET'])
+def query(ingredient):
+    return {
+        "harmful_level": int(db.harmful_level(ingredient)),
+        "comment": db.comment(ingredient),
+        "benefit": db.benefit(ingredient)
+    }
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
