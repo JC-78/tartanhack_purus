@@ -1,7 +1,8 @@
 import pandas as pd
 
-data = pd.read_csv("./data.csv", index_col="ingredient")
-data[data.isna()] = ""
+data = pd.read_csv("./data.csv", index_col="ingredient", converters={"benefit": lambda x: x.replace('\'', '').strip("[]").split(", ")})
+data = data.fillna("")
+
 
 def harmful_level(ingredient):
     try:

@@ -17,7 +17,16 @@ function tileToHarmLevel(tile) {
     }
 }
 function createIngredientTile(ingredient) {
-    var info = queryIngredient(ingredient)
+    try {
+        var info = queryIngredient(ingredient)
+    } catch (err) {
+        var info = {
+            "benefit": [],
+            "harmful_level": 1,
+            "comment": ""
+        }
+    }
+    console.log(info)
     var li = document.createElement("li");
     li.classList.add("list-group-item")
     li.classList.add("d-flex")
@@ -32,7 +41,11 @@ function createIngredientTile(ingredient) {
     content.classList.add("fw-bold")
     content.innerText = ingredient
     card.append(content)
-    card.innerHTML += info['comment']
+    if (info['harmful_level'] == 0) {
+        card.innerHTML += `${ingredient} is good for ${info['benefit'].join(', ')}`
+    } else {
+        card.innerHTML += info['comment']
+    }
     li.append(card);
     return li
 }
