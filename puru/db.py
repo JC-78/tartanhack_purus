@@ -1,12 +1,22 @@
 import pandas as pd
 
 data = pd.read_csv("./data.csv", index_col="ingredient")
+data[data.isna()] = ""
 
 def harmful_level(ingredient):
-    return data.loc[ingredient, "harmful_level"]
+    try:
+        return data.loc[ingredient, "harmful_level"]
+    except KeyError:
+        return "1"
 
 def comment(ingredient):
-    return data.loc[ingredient, "comment"]
+    try:
+        return data.loc[ingredient, "comment"]
+    except KeyError:
+        return ""
 
 def benefit(ingredient):
-    return data.loc[ingredient, "benefit"]
+    try:
+        return data.loc[ingredient, "benefit"]
+    except KeyError:
+        return []

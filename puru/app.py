@@ -23,6 +23,7 @@ def get_dynamic_img_path(image_filename):
 
 @app.route('/query/<ingredient>', methods=['GET'])
 def query(ingredient):
+    ingredient = ingredient.lower()
     return {
         "harmful_level": int(db.harmful_level(ingredient)),
         "comment": db.comment(ingredient),

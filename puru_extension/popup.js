@@ -41,13 +41,11 @@ function getRandomInt(max) {
 }
 
 function queryIngredient(ingredient) {
-    var level = getRandomInt(4);
-    var comment = level == 3 ? "this could be HARMFUL to your body" : ""
-    comment = level == 0 ? "Good for: hydration, texture" : comment
-    return {
-        "harmful_level": level,
-        "comment": comment
-    }
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", `http://127.0.0.1:5000/query/${encodeURIComponent(ingredient)}`, false );
+    console.log(xmlHttp)
+    xmlHttp.send( null );
+    return JSON.parse(xmlHttp.response);
 }
 
 chrome.storage.sync.get(["ingredients"], data => {
