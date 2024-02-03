@@ -1,0 +1,12 @@
+body {
+    min-width:500px;
+}
+
+#ingredients-list {
+    padding: 10px;
+}
+
+#title {
+    padding-left: 25px;
+    padding-top: 15px;
+}
